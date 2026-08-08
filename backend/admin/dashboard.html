@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Pradeep Timber Enterprises</title>
+    <link rel="stylesheet" href="css/admin.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <h1>Pradeep Timber &mdash; Admin</h1>
+      <button id="logout-btn" class="btn btn-outline">Logout</button>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="inquiries">Inquiries</button>
+      <button class="tab-btn" data-tab="blogs">Blogs</button>
+      <button class="tab-btn" data-tab="gallery">Gallery</button>
+      <button class="tab-btn" data-tab="faqs">FAQs</button>
+      <!-- <button class="tab-btn" data-tab="meta">Page Meta (SEO)</button> -->
+    </div>
+
+    <main class="container">
+      <!-- INQUIRIES -->
+      <section id="tab-inquiries" class="tab-panel">
+        <h2>Inquiries</h2>
+        <div id="inquiries-list" class="list"></div>
+      </section>
+
+      <!-- BLOGS -->
+      <section id="tab-blogs" class="tab-panel hidden">
+        <div class="panel-head">
+          <h2>Blogs</h2>
+          <button class="btn" id="new-blog-btn">+ New Blog</button>
+        </div>
+        <div id="blogs-list" class="list"></div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="tab-gallery" class="tab-panel hidden">
+        <div class="panel-head">
+          <h2>Gallery</h2>
+          <button class="btn" id="new-gallery-btn">+ New Image</button>
+        </div>
+        <div id="gallery-list" class="grid"></div>
+      </section>
+
+      <!-- FAQS -->
+      <section id="tab-faqs" class="tab-panel hidden">
+        <div class="panel-head">
+          <h2>FAQs</h2>
+          <button class="btn" id="new-faq-btn">+ New FAQ</button>
+        </div>
+        <div id="faqs-list" class="list"></div>
+      </section>
+
+      <!-- META -->
+      <section id="tab-meta" class="tab-panel hidden">
+        <h2>Page Meta (SEO Title &amp; Description)</h2>
+        <div id="meta-list" class="list"></div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+      <div class="modal">
+        <button id="modal-close" class="modal-close">&times;</button>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

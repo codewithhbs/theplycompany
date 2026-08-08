@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Login | Pradeep Timber Enterprises</title>
+<link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="login-body">
+  <div class="login-card">
+    <h1>Pradeep Timber</h1>
+    <p class="sub">Admin Panel</p>
+    <form id="login-form">
+      <label>Username</label>
+      <input type="text" id="username" required autocomplete="username" />
+      <label>Password</label>
+      <input type="password" id="password" required autocomplete="current-password" />
+      <button type="submit">Login</button>
+      <p id="login-error" class="error hidden"></p>
+    </form>
+  </div>
+  <script src="js/api.js"></script>
+  <script>
+    if (Auth.getToken()) window.location.href = "dashboard.html";
+
+    document.getElementById("login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      const errEl = document.getElementById("login-error");
+      errEl.classList.add("hidden");
+      try {
+        const data = await API.post("/api/auth/login", { username, password }, false);
+        Auth.setToken(data.token);
+        window.location.href = "dashboard.html";
+      } catch (err) {
+        errEl.textContent = err.message || "Login failed";
+        errEl.classList.remove("hidden");
+      }
+    });
+  </script>
+</body>
+</html>
