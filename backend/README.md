@@ -5,12 +5,12 @@ cd backend
 npm install
 cp .env.example .env      # edit MONGO_URI, JWT_SECRET, ADMIN_USERNAME/PASSWORD
 npm run seed               # creates admin user + seeds blogs/gallery/faqs from old static content
-npm start                  # runs on http://localhost:5000
+npm start                  # runs on https://www.api.theplycompany.com
 
 ## URLs
-- Website: http://localhost:5000/
-- Admin panel: http://localhost:5000/admin  (login with ADMIN_USERNAME/ADMIN_PASSWORD from .env)
-- API base: http://localhost:5000/api
+- Website: https://www.api.theplycompany.com/
+- Admin panel: https://www.api.theplycompany.com/admin  (login with ADMIN_USERNAME/ADMIN_PASSWORD from .env)
+- API base: https://www.api.theplycompany.com/api
 
 ## Structure
 - frontend/  -> original site (blog.html, gallery.html, index.html, contact.html modified minimally to pull dynamic data; UI/CSS untouched)

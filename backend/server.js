@@ -26,7 +26,7 @@ app.use("/api/meta", require("./routes/metaRoutes"));
 app.use("/admin", express.static(path.join(__dirname, "admin")));
 
 // Frontend website (static) — served from ../frontend
-app.use(express.static(path.join(__dirname, "..", "frontend")));
+// app.use(express.static(path.join(__dirname, "..", "frontend")));
 
 // Error handler
 app.use((err, req, res, next) => {
@@ -36,3 +36,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
+app.use("/", (req, res) => {
+  res.send("Welcome to the backend API of Pradeep Timber!");
+});

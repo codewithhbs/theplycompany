@@ -4,7 +4,7 @@
    into the existing markup structure. Runs after main.js.
    ============================================================ */
 (function () {
-  const API_BASE = "http://localhost:5000"; // same-origin; set to full backend URL if hosted separately
+  const API_BASE = "https://www.api.theplycompany.com"; // same-origin; set to full backend URL if hosted separately
 
   function esc(str) {
     return (str || "").toString().replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -88,7 +88,7 @@
 
       if (featuredEl && featured) {
         featuredEl.innerHTML = `
-          <img src="http://localhost:5000${featured.image}" alt="Featured guide: ${esc(featured.title)}" class="w-full h-64 lg:h-full object-cover" loading="lazy" />
+          <img src="https://www.api.theplycompany.com${featured.image}" alt="Featured guide: ${esc(featured.title)}" class="w-full h-64 lg:h-full object-cover" loading="lazy" />
           <div class="p-8 sm:p-10 flex flex-col justify-center">
             <div class="flex items-center gap-3 text-xs text-stone-500"><span class="text-green font-semibold">${esc(featured.category)}</span><span>&middot;</span><span>${fmtDate(featured.date)}</span><span>&middot;</span><span>${esc(featured.readTime)}</span></div>
             <h2 class="font-display font-bold text-2xl sm:text-3xl mt-3 text-[#241811]">${esc(featured.title)}</h2>
@@ -101,7 +101,7 @@
       if (gridEl) {
         gridEl.innerHTML = rest.map((b) => `
           <article class="card overflow-hidden group">
-            <img src="http://localhost:5000${b.image}" alt="${esc(b.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            <img src="https://www.api.theplycompany.com${b.image}" alt="${esc(b.title)}" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             <div class="p-6">
               <div class="flex items-center gap-3 text-xs text-stone-500"><span class="text-green font-semibold">${esc(b.category)}</span><span>&middot;</span><span>${fmtDate(b.date)}</span></div>
               <h3 class="font-display font-semibold text-lg mt-3"><a href="blog-detail.html?slug=${encodeURIComponent(b.slug)}">${esc(b.title)}</a></h3>
@@ -159,7 +159,7 @@
 
       container.innerHTML = items.map((g) => `
         <div class="gallery-item mb-5 break-inside-avoid" data-category="${esc(g.category)}">
-          <img src="http://localhost:5000${g.image}" alt="${esc(g.title)}" loading="lazy" />
+          <img src="https://www.api.theplycompany.com${g.image}" alt="${esc(g.title)}" loading="lazy" />
           <div class="gallery-overlay"><p class="text-white text-sm font-medium">${esc(g.title)}</p></div>
         </div>
       `).join("");
